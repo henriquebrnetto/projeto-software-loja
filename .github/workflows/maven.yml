@@ -47,4 +47,4 @@ jobs:
         script: |
           docker stop loja
           docker rm --force loja
-          docker run -d -p 8081:8081 --name loja henriquebrnetto/loja-ci:${{ github.sha }}
+          docker run -d -p 8081:8081 --name loja --netwrok=rede henriquebrnetto/loja-ci:${{ github.sha }}
