@@ -14,7 +14,7 @@ public class ProdutoService {
 
         try {
             return restTemplate
-                    .getForEntity("http://localhost:8080/api/produto/" + id,
+                    .getForEntity("http://produto-ci:8082/api/produto/" + id,
                             Produto.class)
                     .getBody();
         } catch (HttpClientErrorException.NotFound e) {
@@ -31,7 +31,7 @@ public class ProdutoService {
             HttpEntity<String> requestEntity = new HttpEntity<>(qtd.toString(), headers);
 
             return restTemplate
-                    .exchange("http://localhost:8080/api/produto/" + id,
+                    .exchange("http://produto-ci:8082/api/produto/" + id,
                             HttpMethod.PUT,
                             requestEntity,
                             Produto.class)
